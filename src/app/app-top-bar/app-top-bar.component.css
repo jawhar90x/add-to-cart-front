@@ -1,0 +1,11 @@
+.navbar-brand img{
+  width: 150px;
+}
+
+li a {
+  cursor: pointer;
+}
+
+.bg{
+  background-color: #312783;
+}

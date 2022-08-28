@@ -1,0 +1,59 @@
+<div class="sb-nav-fixed">
+  <app-top></app-top>
+  <div id="layoutSidenav">
+    <app-bar></app-bar>
+    <!-- CONTENT-->
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid px-4">
+          <h2 style="color: black">My product</h2>
+
+          <div>
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target=".bd-example-modal-sm"
+              routerLink="/add-product">
+              + ajouter
+            </button>
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">...</div>
+              </div>
+            </div>
+            <table class="fl-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nom</th>
+                  <th>Image</th>
+                  
+                  <th>prix</th>
+                  <th>Éditer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of productList; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ product.name }}</td>
+                  <td>
+                    <img src="http://localhost:3001/{{product.picture}}" class="image-fluid category-image" alt=""  style="height: 17rem;" width="100%" />
+                  </td>
+               <td> <h4>{{product.prix}}</h4></td>
+         
+                  <td>
+                    <button class="btn btn-warning mx-2" [routerLink]="['/modify-product', product._id]">
+                      <i class="fa fa-pencil" style="color: white" aria-hidden="true"></i></button><button
+                      class="btn btn-danger mx-2" style="color: white" (click)="delete(product._id, i)">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+ 
+</div>
